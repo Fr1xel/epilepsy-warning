@@ -47,6 +47,7 @@ const EpilepsyButton = () => {
   }, [timer]);
 
   return (
+    
     <div className="wrapper" style={{ backgroundColor: backgroundColor }}>
       <button
         onClick={() => {
