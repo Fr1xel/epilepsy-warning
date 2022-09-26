@@ -6,6 +6,15 @@ const EpilepsyButton = () => {
   const [buttonColor, setButtonColor] = useState("white");
   const [timer, setTimer] = useState(0);
   const [stop, setStop] = useState(false);
+  const handleEpilepsyClick = () => {
+    if (!stop) {
+      setStop(true);
+      setTimer(1);
+    } else {
+      setStop(false);
+      setTimer(0);
+    }
+  };
   const colorList = [
     "white",
     "black",
@@ -30,12 +39,9 @@ const EpilepsyButton = () => {
     setBackgroundColor(colorList[randomDiv]);
     setButtonColor(colorList[randomButton]);
 
-    console.log(stop);
-
     if (stop) {
       setTimeout(() => {
-        const timerRandom = Math.floor(Math.random() * (577 - 10 + 1)) + 10;
-        setTimer(timerRandom);
+        setTimer(timer + 1);
       }, 10);
     }
   }, [timer]);
@@ -44,15 +50,17 @@ const EpilepsyButton = () => {
     <div className="wrapper" style={{ backgroundColor: backgroundColor }}>
       <button
         onClick={() => {
-          setTimer(1);
-          setStop(true);
+          handleEpilepsyClick();
         }}
-        className="warning-button"
+        className={
+          buttonColor == "black"
+            ? "warning-button text-white"
+            : "warning-button"
+        }
         style={{ backgroundColor: buttonColor }}
       >
         Epilepsy Warning
       </button>
-      {stop ? <button onClick={() => setStop(false)}>Stop</button> : <></>}
     </div>
   );
 };

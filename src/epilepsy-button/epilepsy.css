@@ -1,11 +1,14 @@
-.wrapper{
-    width: 100vw;
-    height:100vh;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.warning-button{
-    font-size: 40px;
+.warning-button {
+  font-size: 40px;
+}
+.text-white {
+  color: white;
 }
